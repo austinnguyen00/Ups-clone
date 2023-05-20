@@ -8,7 +8,7 @@ export type RootStackParamList = {
 	Order: { order: any };
 };
 
-const RootStack = createNativeStackNavigator();
+const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
 	return (
