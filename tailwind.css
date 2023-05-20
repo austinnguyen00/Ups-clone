@@ -1,9 +1,33 @@
+.static {
+  position: static
+}
+
+.fixed {
+  position: fixed
+}
+
+.absolute {
+  position: absolute
+}
+
+.relative {
+  position: relative
+}
+
+.block {
+  display: block
+}
+
 .flex {
   display: flex
 }
 
 .hidden {
   display: none
+}
+
+.border {
+  border-width: 1px
 }
 
 .text-red-500 {
