@@ -12,7 +12,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
 	return (
-		<RootStack.Navigator>
+		<RootStack.Navigator screenOptions={{ headerShown: false }}>
 			{/* `Group` components are used to to group several screens
     inside a navigator */}
 			<RootStack.Group>

@@ -19,17 +19,18 @@ const TabNavigator = () => {
 
 	// `useLayoutEffect` is a version of `useEffect` that
 	// fires before the browser repaints the screen
-	useLayoutEffect(() => {
-		// Hiding the `Main` screen name at the top
-		navigation.setOptions({
-			headerShown: false,
-		});
-	}, []);
+	// useLayoutEffect(() => {
+	// 	// Hiding the `Main` screen name at the top
+	// 	navigation.setOptions({
+	// 		headerShown: false,
+	// 	});
+	// }, []);
 
 	return (
 		// `screenOptions` configure how the screens inside get presented in the navigator
 		<Tab.Navigator
 			screenOptions={({ route }) => ({
+				headerShown: false,
 				tabBarActiveTintColor: '#59c1cc',
 				tabBarInactiveTintColor: 'gray',
 				tabBarIcon: ({ focused, color, size }) => {
