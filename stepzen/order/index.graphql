@@ -8,8 +8,17 @@ type Order {
 	shippingCost: Int
 	trackingId: String
 	trackingItems: TrackingItems
+		# A materializer is a function or resolver
+		# that is responsible for resolving the value of a field in the GraphQL schema.
+		# It allows you to fetch data from an external source or
+		# perform additional logic to generate the value for the field.
 		@materializer(
+			# The query argument is used to specify the GraphQL query
+			# that should be executed to resolve the value of the field
 			query: "getTrackItemById"
+			# The arguments argument is used to specify the arguments to be passed to the materializer query.
+			# The `id` argument of the materializer query will be set to
+			# the value of the `trackingId` field in the current `Order` object.
 			arguments: [{ name: "id", field: "trackingId" }]
 		)
 }
