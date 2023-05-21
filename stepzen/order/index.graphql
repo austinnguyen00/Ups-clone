@@ -1,0 +1,38 @@
+type Order {
+	Address: String
+	City: String
+	Lat: Float
+	Lng: Float
+	carrier: String
+	createdAt: String
+	shippingCost: Int
+	trackingId: String
+	trackingItems: TrackingItems
+		@materializer(
+			query: "getTrackItemById"
+			arguments: [{ name: "id", field: "trackingId" }]
+		)
+}
+
+type OrderList {
+	name: ID
+	value: Order
+}
+
+type Query {
+	getOrders: [OrderList]
+		# The @rest directive is a custom directive used to indicate that
+		# the query should be resolved by making a REST API call.
+		# It allows you to specify the REST endpoint to fetch the data from.
+		@rest(
+			# The `endpoint` argument is used to specify the URL of the REST API endpoint
+			endpoint: "https://ups-clone-austin-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json"
+			# The transforms argument is used to specify data transformations
+			# to be applied to the REST API response.
+			# In this case, the pathpattern is an empty array [],
+			# and the editor is set to "objectToArray".
+			# It means that the response data will be transformed
+			# from an object to an array using the specified transformation.
+			transforms: [{ pathpattern: [], editor: "objectToArray" }]
+		)
+}
